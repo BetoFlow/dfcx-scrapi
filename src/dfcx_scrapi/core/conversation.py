@@ -577,7 +577,7 @@ class DialogflowConversation(scrapi_base.ScrapiBase):
         for start in range(0, test_set.shape[0], chunk_size):
             test_set_chunk = test_set.iloc[start : start + chunk_size]
             result_chunk = self._get_intent_detection(test_set=test_set_chunk)
-            result = pd.concat([result, result_chunk])
+            result = pd.concat([result, result_chunk],ignore_index=True)
             self.progress_bar(start, test_set.shape[0])
             time.sleep(rate_limit)
         self.progress_bar(test_set.shape[0], test_set.shape[0])
