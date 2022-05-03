@@ -584,7 +584,7 @@ class DialogflowConversation(scrapi_base.ScrapiBase):
         
         result = self._unpack_match(result)
         column_order = ['flow_display_name', 'page_display_name', 'utterance', 
-            'match_type', 'detected_intent', 'expected_intent', 'parameters_set', 'expected_entities', 'confidence', 'target_page']
+            'match_type', 'detected_intent', 'expected_intent', 'entities_leaves', 'parameters_set', 'expected_entities', 'confidence', 'target_page']
         return result[column_order]
 
     def _unpack_match(self, df: pd.DataFrame):
